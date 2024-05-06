@@ -1,15 +1,13 @@
 # UTBEQuantumWalk
 Model of an ultrafast time-bin encoding (UTBE) quantum walk using Strawberryfields (https://strawberryfields.readthedocs.io/).
 
-Requires packages numpy and strawberryfields.
+For details, see: K. Fenwick et al. https://arxiv.org/abs/2404.02238
 
-Reference: K. Fenwick et al. https://arxiv.org/abs/2404.02238
+Requires packages numpy and strawberryfields.
 
 ## How it works
 
-The UTBE quantum walk being simulated is a sequence of alpha-BBO crystals whose angle alternates between 0 deg and 45. 
-
-As an example, consider the case of a 2-step walk. The code implements the circuit shown below in Strawberryfields.
+As an example, consider a 2-step quantum walk. The code implements the circuit shown below in Strawberryfields.
 
 <img src="graph.svg"/>
 
