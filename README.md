@@ -6,5 +6,5 @@ Reference: K. Fenwick et al. https://arxiv.org/abs/2404.02238
 ## How it works
 
 <p align="center">
-    <img src="figs/pineapple.png"/>
+    <img src="pineapple.png"/>
 </p>
