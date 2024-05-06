@@ -16,7 +16,7 @@ The UTBE quantum walk being simulated is a sequence of alpha-BBO crystals whose 
 
 where |D>=(|H>+|V>)/sqrt(2) and |A>=(-|H>+|V>)/sqrt(2).
 
-The code converts these dynamics into a quantum circuit which can implemented in Strawberryfields. As an example, consider a 2-step quantum walk:
+The code implements these dynamics into a quantum circuit which can simulated in Strawberryfields. As an example, consider a 2-step quantum walk:
 
 <img src="graph.svg"/>
 
