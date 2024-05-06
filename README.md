@@ -7,7 +7,17 @@ Requires packages numpy and strawberryfields.
 
 ## How it works
 
-As an example, consider a 2-step quantum walk. The code implements the circuit shown below in Strawberryfields.
+The UTBE quantum walk being simulated is a sequence of alpha-BBO crystals whose orientation alternates between 0 degrees and 45 degrees with respect to the horizontal/vertical (H/V) basis. These enact the following transformations:
+
+|H, t_n> -> aBBO (0 deg) -> |H, t_n>
+|V, t_n> -> aBBO (0 deg) -> |V, t_{n+1}>
+
+|D, t_n> -> aBBO (45 deg) -> |D, t_n>
+|A, t_n> -> aBBO (45 deg) -> |A, t_{n+1}>
+
+where |D>=(|H>+|V>)/sqrt(2) and |A>=(-|H>+|V>)/sqrt(2).
+
+The code converts these dynamics into a quantum circuit which can implemented in Strawberryfields. As an example, consider a 2-step quantum walk:
 
 <img src="graph.svg"/>
 
