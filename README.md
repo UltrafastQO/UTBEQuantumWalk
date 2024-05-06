@@ -1,5 +1,5 @@
 # UTBEQuantumWalk
-Model of an ultrafast time-bin encoding (UTBE) quantum walk using Strawberryfields (https://strawberryfields.readthedocs.io/).
+Ultrafast time-bin encoding (UTBE) quantum walk simulation using Strawberryfields (https://strawberryfields.readthedocs.io/).
 
 For details, see: K. Fenwick et al. https://arxiv.org/abs/2404.02238
 
