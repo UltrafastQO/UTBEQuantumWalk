@@ -7,5 +7,5 @@ Reference: K. Fenwick et al. https://arxiv.org/abs/2404.02238
 ## How it works
 
 <p align="center">
-    <img src="graph.png"/>
+    <img src="graph.svg"/>
 </p>
