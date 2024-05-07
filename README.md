@@ -7,7 +7,7 @@ Requires packages numpy and strawberryfields.
 
 ## How it works
 
-The UTBE quantum walk being simulated is a sequence of alpha-BBO crystals whose orientation alternates between 0 degrees and 45 degrees with respect to the horizontal/vertical (H/V) basis. These enact the following transformations:
+The UTBE quantum walk being simulated is a sequence of alpha-BBO crystals whose orientation alternates between 45 degrees and 0 degrees with respect to the horizontal/vertical (H/V) basis. These enact the following transformations:
 
 |H, t_n> -> aBBO (0 deg) -> |H, t_n> <br>
 |V, t_n> -> aBBO (0 deg) -> |V, t_{n+1}> <br>
