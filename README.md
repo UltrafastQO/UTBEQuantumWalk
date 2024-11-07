@@ -20,6 +20,6 @@ The code implements these dynamics into a quantum circuit which can simulated in
 
 <img src="graph_v2.svg"/>
 
-The input state is a two-mode squeezed vacuum state in modes 0 and 1, and a coherent state in the mode 2. Mode 0 is a the heralding mode and does not participate in the walk. The transformation U_BS is a 50:50 beam splitter while U_SWAP is a SWAP operation (i.e. a beam splitter with unit reflectivity). To ensure light does not propagate backwards in time, the SWAP operations are applied on the later time bins first.
+The input state is a two-mode squeezed vacuum state in modes 0 and 1, and a coherent state in the mode 2. Mode 0 is a the heralding mode and does not participate in the walk. The transformation U_BS is a 50:50 beam splitter while U_SWAP is a SWAP operation (i.e. a beam splitter with unit reflectivity). To ensure light does not propagate backwards in time, the SWAP operations are applied on the later time bins first (the last bin/mode should contain vacuum until the very last step).
 
 The code can take into account various experimental imperfections, including dark counts (i.e. noise photons), mode matching, and optical losses. It is also straightforward to model click detectors by replacing `fock_prob` with `threshold_detection_prob` where the latter is implemented using TheWalrus (https://the-walrus.readthedocs.io).
