@@ -14,8 +14,8 @@ max_photons = 2 # maximum number of photons detected
 
 ### Run simulation ###
 
-pn_ideal = computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons)
-pn_imperfect = computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons)
+pn_ideal = computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons, n_noise)
+pn_imperfect = computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons, n_noise)
 
 
 # Keep only H-photon or V-photon modes (tracing-over non detected modes)
