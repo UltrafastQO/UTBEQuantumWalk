@@ -1,8 +1,8 @@
-from numpy import exp, sqrt, pi
+from numpy import pi
 import numpy as np
 
 import strawberryfields as sf
-from strawberryfields.ops import *
+from strawberryfields.ops import S2gate, LossChannel, Coherent, BSgate, ThermalLossChannel
 
 
 def generate_photon_outcomes(N, max_photons=2):
@@ -116,7 +116,7 @@ def traceOverHV(pDict):
     return normalizeProbDict(H_probabilities) , normalizeProbDict(V_probabilities)
     
 
-def computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons, etaFock=1):
+def computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons, n_noise, etaFock=1):
     
     '''Main function which computes the walk output photon statistics, 
     including most experimental imperfections. Uses strawberryfields in the 
@@ -146,6 +146,7 @@ def computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons, etaFock=1):
     float eta:       Efficiency of setup (applies equal loss before all detectors)
     float gamma:     Phase between H and V pol due to BBO
     int max_photons: Max number of photons detected at output of walk.
+    float n_noise:   Dark count prob per pump pulse in each mode.
     float eta_fock:  Transmission of heralded photon. Useful for computing walk
                      with imperfect mode matching.
     
@@ -243,7 +244,7 @@ def computeWalkOutput(nSteps, r, alphaSq, eta, gamma, max_photons, etaFock=1):
 
 
 
-def computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons):
+def computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons, n_noise):
     
     '''Function which computes the walk output photon statistics when 
     there is imperfect mode matching (i.e. interference visibility) between the
@@ -273,6 +274,8 @@ def computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons):
     float gamma:     Phase between H and V pol due to BBO
     float mm:        Mode overlap, i.e. HOM visibility between alpha and Fock
     int max_photons: Max number of photons detected at output of walk.
+    float n_noise:   Dark count prob per pump pulse in each mode.
+
     Output
     
     dict pn_final:   Normalized prob distb containing output walk statistics.
@@ -281,8 +284,8 @@ def computeWalkOutputWithMM(nSteps, r, alphaSq, eta, gamma, mm, max_photons):
     '''    
     
     
-    pn_para = computeWalkOutput(nSteps, r, mm*alphaSq, eta, gamma, max_photons, etaFock=1)
-    pn_perp = computeWalkOutput(nSteps, r, (1-mm)*alphaSq, eta, gamma, max_photons, etaFock=0)
+    pn_para = computeWalkOutput(nSteps, r, mm*alphaSq, eta, gamma, max_photons, n_noise, etaFock=1)
+    pn_perp = computeWalkOutput(nSteps, r, (1-mm)*alphaSq, eta, gamma, max_photons, n_noise, etaFock=0)
         
     pn_final = convolve_probabilities(pn_para, pn_perp)
 
